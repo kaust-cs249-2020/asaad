@@ -1,4 +1,4 @@
-#  1.10 Epilogue: Complications in ori Predictions 
+#  Covid19 DnaA prediction
 from Ex12 import FrequentWordsWithMismatchesAndRC
 from Ex6 import minimumSkew
 from Ex4 import listToString
