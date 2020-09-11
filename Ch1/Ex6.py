@@ -8,7 +8,7 @@ def minimumSkew(Genome):
     minVal = 999 # Is it best to start from 0?
     skewness = 0
     positions = list()
-    skewValues = {"G": 1, "C": -1, "A": 0, "T": 0}
+    skewValues = {"G": 1, "C": -1, "A": 0, "T": 0, "g": 1, "c": -1, "a": 0, "t": 0}
 
     for i in range(0, len(Genome)):
         skewness = skewness + skewValues.get(Genome[i])
