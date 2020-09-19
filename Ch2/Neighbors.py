@@ -1,6 +1,6 @@
 #  1.11 CS: Generating the Neighborhood of a String 
-from Ex7 import hammingDistance
-from Ex4 import listToString
+from hammingDistance import hammingDistance
+from indexOfPattern import listToString
 def Neighbors(Pattern, d):
     
     # Input: A string Pattern and an integer d.
@@ -9,14 +9,14 @@ def Neighbors(Pattern, d):
         return {Pattern}
     if len(Pattern) == 1:
         return {"A", "C", "G", "T"}
-    Neighborhood = set()
+    Neighborhood = list()
     suffixNeighbors =  Neighbors(Pattern[1:], d)
     for text in suffixNeighbors:
-        if hammingDistance(Pattern[1:], text) < d:
+        if hammingDistance(Pattern[1:], text) <= d:
             for x in {"A", "C", "G", "T"}:
-                Neighborhood.add((x+text))
+                Neighborhood.append((x+text))
         else:
-            Neighborhood.add((Pattern[0]+text))
+            Neighborhood.append((Pattern[0]+text))
 
     return Neighborhood
 

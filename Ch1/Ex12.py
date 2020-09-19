@@ -8,16 +8,16 @@ def FrequentWordsWithMismatchesAndRC(Text, k, d):
     # Input: A DNA string Text as well as integers k and d.
     # Output: All k-mers Pattern maximizing the sum Countd(Text, Pattern)+ Countd(Text, Patternrc) over all possible k-mers.
     Patterns = list()
-
     freqMap = {}
     n = len(Text)
     for i in range(0, (n-k+1)):
         pattern = Text[i:i+k]
         rcpattern = reverseComplement(pattern)
-        neighborhood = list(Neighbors(pattern, d))
-        neighborhoodr = list(Neighbors(rcpattern, d))
+        neighborhood = list(Neighbors(pattern, d)) 
+        neighborhoodr = list(Neighbors(rcpattern, d)) # Reem Alternative: Apply RC to each original Neighborhood (Improves Space Complexity)
+
         for j in range(0, len(neighborhood)):
-            neighbor = neighborhood[j]
+            neighbor = neighborhood[j]      
             neighborR = neighborhoodr[j]
     
             freqMap[neighbor] = freqMap.get(neighbor, 0) + 1
