@@ -25,6 +25,7 @@ def GibbsSampler(Dna, k, t, N):
         if score(motifs) < score(bestMotif):
             bestMotif = motifs
     return bestMotif
+
 def profile_random_probability_kmer(string, k, profile):
     translation = {"A":0, "C":1, "G":2, "T":3}
     probabilities = {}
@@ -35,6 +36,7 @@ def profile_random_probability_kmer(string, k, profile):
             probabilities[kmer] = probabilities[kmer] * profile[translation[kmer[j]]][j]*1.0
     random_choice = random.choices(list(probabilities.keys()), weights=probabilities.values())
     return string.join(random_choice)
+
 def iteration_GS(Dna, k, t, N, iter):
     bestMotifs =  GibbsSampler(Dna, k, t, N)
     for i in range(0, iter-1):
